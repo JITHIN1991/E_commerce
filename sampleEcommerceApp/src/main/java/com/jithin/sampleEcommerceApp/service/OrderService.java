@@ -57,6 +57,8 @@ public class OrderService {
 			if (item.getStock() < orderItemForm.getQuantity()) {
 
 				throw new OutOfStockException("The product - " + item.getName() + " is out of stock");
+			}else {
+				item.setStock((item.getStock()) - orderItemForm.getQuantity());
 			}
 			OrderItem orderItem = new OrderItem();
 			OrderItemPK pk = new OrderItemPK();
